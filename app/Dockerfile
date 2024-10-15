@@ -16,8 +16,8 @@ RUN apt-get update \
 
 # install dependencies
 RUN pip install --upgrade pip
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+COPY ./requirements.txt /tmp/
+RUN pip install --requirement /tmp/requirements.txt
 
 #copy entrypoint.sh
 COPY ./entrypoint.sh /usr/src/app/entrypoint.sh
